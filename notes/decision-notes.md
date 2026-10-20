@@ -10,7 +10,7 @@ Why: `training_load` is a 1–5 rating, not a true measurement; `injured` is a y
 Alternatives: Treat `training_load` as numeric — to revisit when modelling.
 
 **18 Oct — Workspace structure** (Reece)
-Decided: Weekly folders in `code/` and `outputs/`, each with a shared `weekXX_final.R` and one `roughwork_name.R` per member; shared `code/setup.R` loads the data.
+Decided: Weekly folders in `code/` and `outputs/`, each with a shared `weekXX_final.R` and one `weekXX_rough_name.R` per member; shared `code/setup.R` loads the data.
 Why: Lets everyone work on one file together while keeping rough work and individual contributions traceable, as the brief asks.
 
 ## Week 03 — Introduction to GLMs
