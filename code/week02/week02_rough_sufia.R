@@ -114,8 +114,9 @@ player_data %>%
     injured_players = sum(injured == "Yes", na.rm = TRUE),
     injury_rate = mean(injured == "Yes", na.rm = TRUE),
     .groups = "drop"
+  )
 
-# STEP 7: MATCH DATA PLOTS 
+# STEP 7: MATCH DATA PLOTS
 # Plot 1: Goals scored at home and away
 ggplot(match_data, aes(x = home_away, y = goals_scored)) +
   geom_boxplot(fill = "skyblue") +
