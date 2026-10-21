@@ -1,16 +1,11 @@
-match_data <- read.delim("clipboard", header = TRUE)
-player_data <- read.delim("clipboard", header = TRUE)
-install.packages("tidyverse")
+source("code/setup.R")  # loads match_data and player_data from data/
+# install.packages("tidyverse")  # run once in the Console if needed
 library(tidyverse)
-
-match_data <- read.delim("clipboard", header = TRUE)
 
 # Check the imported data
 head(match_data)
 dim(match_data)
 str(match_data)
-
-player_data <- read.delim("clipboard", header = TRUE)
 
 # Check the imported data
 head(player_data)
@@ -134,6 +129,7 @@ ggplot(match_data, aes(x = goals_scored)) +
     fill = "steelblue",
     color = "white"
   ) +
+  scale_x_continuous(breaks = 0:8) +
   labs(
     title = "Distribution of Goals Scored",
     x = "Goals Scored",
