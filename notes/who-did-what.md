@@ -48,7 +48,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | |
 | Sabrina | |
-| Saema   | |Poisson regression to investigate how Ashford United’s goals scored relate to match location (home or away) and opponent league ranking. Exploratory analysis of goal counts, interpretation of model coefficients, and checks for overdispersion and model fit.
+| Saema   | |Poisson regression to investigate how Ashford United’s goals scored relate to match location (home or away) and opponent league ranking. Exploratory analysis of goal counts, interpretation of model coefficients, and checks for overdispersion and model fit.I
 | Sufia   | |
 | Summer  | |
 
