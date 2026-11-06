@@ -3,8 +3,8 @@
 # Keep everything; move good work into week02_final.R.
 # Save outputs to outputs/week02/ with your name in the file name.
 
-players <- read.csv("league_players.csv")
-matches <- read.csv("ashford_matches.csv")
+players <- read.csv("data/league_players.csv")
+matches <- read.csv("data/ashford_matches.csv")
 
 
 # 2. EXPLORE THE DATA
