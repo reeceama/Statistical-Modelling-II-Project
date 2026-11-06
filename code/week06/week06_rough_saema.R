@@ -2,121 +2,59 @@
 # Rough exploratory work: Saema
 # Keep everything; move good work into week06_final.R.
 # Save outputs to outputs/week06/ with your name in the file name.
-matches <- read.csv("ashford_matches(1).csv")
 
-head(matches)
-str(matches)
-summary(matches)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 
-# Convert home_away to a categorical variable
-matches$home_away <- factor(
-  matches$home_away,
-  levels = c("Away", "Home"))
+players <- read.csv("data/league_players.csv")
+matches <- read.csv("data/ashford_matches.csv")
 
-table(matches$home_away)
+players <- players %>%
+  mutate(
+    team = factor(team),
+    position = factor(position),
+    training_load = ordered(training_load, levels = 1:5),
+    injured = as.integer(injured))
 
+matches <- matches %>%
+  mutate(home_away = factor(home_away, levels = c("Away", "Home")))
 
-# 3. Explore the response variable
-summary(matches$goals_scored)
+# WEEK 06 — Section 2: Poisson model selection for goals_scored
+# Aim: test the home_away x opponent_rank interaction and each main term.
 
-mean(matches$goals_scored)
-var(matches$goals_scored)
+# Full model including interaction.
+poisson_full <- glm(
+  goals_scored ~ home_away * opponent_rank,
+  family = poisson(link = "log"),
+  data = matches)
+summary(poisson_full)
 
-table(matches$goals_scored)
-
-# Plot the distribution of goals scored
-hist(
-  matches$goals_scored,
-  breaks = seq(-0.5, max(matches$goals_scored) + 0.5, 1),
-  main = "Distribution of Goals Scored by Ashford United",
-  xlab = "Goals scored",
-  ylab = "Frequency",
-  col = "lightblue")
-
-
-# 4. Compare goals scored at home and away
-
-boxplot(
-  goals_scored ~ home_away,
-  data = matches,
-  main = "Goals Scored at Home and Away",
-  xlab = "Match location",
-  ylab = "Goals scored",
-  col = c("lightgreen", "lightblue"))
-
-# Calculate mean goals for each location
-aggregate(
-  goals_scored ~ home_away,
-  data = matches,
-  FUN = mean)
-
-
-# 5. Explore the relationship with opponent rank
-
-plot(
-  matches$opponent_rank,
-  matches$goals_scored,
-  main = "Goals Scored Against Opponents of Different Ranks",
-  xlab = "Opponent's final league rank",
-  ylab = "Goals scored",
-  pch = 19)
-
-
-# 6. Fit a Poisson regression model
-
-model <- glm(
+# Additive model without interaction.
+poisson_additive <- glm(
   goals_scored ~ home_away + opponent_rank,
-  data = matches,
-  family = poisson(link = "log"))
+  family = poisson(link = "log"),
+  data = matches)
 
-# Model results
-summary(model)
+# Likelihood-ratio test: does the interaction improve the model?
+anova(poisson_additive, poisson_full, test = "Chisq")
 
-# 7. Interpret coefficients using incidence rate ratios
+# Test each term in the additive model by deleting one term at a time.
+drop1(poisson_additive, test = "Chisq")
 
-# Exponentiate coefficients
-exp(coef(model))
+# AIC comparison: lower AIC indicates a better trade-off between fit and
+# complexity among the models being compared.
+AIC(poisson_additive, poisson_full)
 
-# Confidence intervals for the incidence rate ratios
-exp(confint.default(model))
+# Also compare the null model with the additive model.
+poisson_null <- glm(goals_scored ~ 1, family = poisson, data = matches)
+anova(poisson_null, poisson_additive, test = "Chisq")
+AIC(poisson_null, poisson_additive, poisson_full)
 
+# Report point:
+# State whether the interaction is supported by the likelihood-ratio test
+# and AIC. Then report which main effects are retained. Use the test results,
+# AIC, model hierarchy and subject context together; do not select terms from
+# p-values alone.
 
-# 8.predicted mean goals
-
-matches$predicted_goals <- predict(
-  model,
-  type = "response")
-
-# Compare observed and predicted values
-head(
-  matches[, c(
-    "home_away",
-    "goals_scored",
-    "opponent_rank",
-    "predicted_goals" )])
-
-# 9. Check for overdispersion
-pearson_residuals <- residuals(
-  model,
-  type = "pearson")
-
-# Dispersion statistic
-dispersion <- sum(pearson_residuals^2) /
-  df.residual(model)
-
-dispersion
-
-# 10. Examine model diagnostics
-
-par(mfrow = c(2, 2))
-plot(model)
-par(mfrow = c(1, 1))
-
-
-# 11. Compare observed and predicted mean goals by match location
-
-aggregate(
-  cbind(goals_scored, predicted_goals) ~ home_away,
-  data = matches,
-  FUN = mean)
 source("code/setup.R")
