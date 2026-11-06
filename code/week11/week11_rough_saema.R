@@ -7,8 +7,8 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-players <- read.csv("league_players.csv")
-matches <- read.csv("ashford_matches.csv")
+players <- read.csv("data/league_players.csv")
+matches <- read.csv("data/ashford_matches.csv")
 
 players <- players %>%
   mutate(
