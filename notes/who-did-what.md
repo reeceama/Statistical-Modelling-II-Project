@@ -6,7 +6,7 @@ Running record of each member's contributions, updated weekly.
 
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | Set up the GitHub repo and added the data files (15 Oct); designed the workspace structure (18 Oct) |
+| Reece   | Set up the GitHub repo and added the data files (15 Oct); designed the workspace structure (18 Oct); used backward elimination to find which variables affect minutes played, interpreted the final model with 95% CIs, made a table comparing the full and final models, and checked whether training load works better as a number or as categories (7 Nov) |
 | Sabrina | |
 | Saema   | Exploratory analysis of player and match datasets using variable classification, summary statistics, tables, and graphs. Linear regression to investigate how age, training load, previous injuries, and playing position relate to minutes played. (15th Oct) | 
 | Sufia   | Exploratory analysis of both datasets: variable classification, summary statistics, six plots, linear models for minutes played and goals scored (15 Oct)|
