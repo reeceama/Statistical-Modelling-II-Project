@@ -93,8 +93,13 @@ comparison <- modelsummary(
   output = "dataframe"
 )
 
-# Save it as a Markdown table, so it shows as a table on GitHub, and print it in the console.
+# Label each row as an estimate, 95% CI or fit statistic, and add a note explaining the stars.
 comparison$term[comparison$statistic == "conf.int"] <- ""
-comparison_md <- knitr::kable(comparison[, c("term", "Full model", "Final model")], format = "pipe")
-writeLines(comparison_md, "outputs/week02/reece_model_comparison.md")
-comparison_md
+comparison$statistic <- ifelse(comparison$part == "gof", "Fit statistic",
+                               ifelse(comparison$statistic == "conf.int", "95% CI", "Estimate"))
+comparison <- comparison[, c("term", "statistic", "Full model", "Final model")]
+comparison[nrow(comparison) + 1, ] <- c("Note", "*** p < 0.001, ** p < 0.01, * p < 0.05", "", "")
+
+# Save it as a CSV, which also shows as a table on GitHub, and print it in the console.
+write.csv(comparison, "outputs/week02/reece_model_comparison.csv", row.names = FALSE)
+comparison
