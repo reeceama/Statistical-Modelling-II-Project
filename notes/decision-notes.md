@@ -9,10 +9,6 @@ Decided: Treat `training_load` as ordered categorical and `injured` as a binary 
 Why: `training_load` is a 1–5 rating, not a true measurement; `injured` is a yes/no outcome.
 Alternatives: Treat `training_load` as numeric — to revisit when modelling.
 
-**18 Oct — Workspace structure** (Reece)
-Decided: Weekly folders in `code/` and `outputs/`, each with a shared `weekXX_final.R` and one `weekXX_rough_name.R` per member; shared `code/setup.R` loads the data.
-Why: Lets everyone work on one file together while keeping rough work and individual contributions traceable, as the brief asks.
-
 **7 Nov — Model selection for `minutes_played`** (Reece)
 Decided: I kept training load and position in the final model, with GK as the reference position to remain consistent with other files.
 Why: I started with all five player variables and used backward elimination, dropping the term with the highest p-value each round. Age (p = 0.815), BMI (p = 0.749) and previous injuries (p = 0.535) were removed. Adding all three back barely changes the fit (F(3, 612) = 0.18, p = 0.91), and the final model has a lower AIC (9707.8 vs 9713.2), so the simpler model is preferred.

@@ -6,11 +6,13 @@
 source("code/setup.R")
 library(modelsummary)
 
-# ----- 1. Data loading ------
+
+# ----- 1. Data loading -----
 
 # Check the structure of the player data.
 str(player_data)
 summary(player_data)
+
 
 # ----- 2. Full model -----
 
@@ -29,6 +31,7 @@ full_model <- lm(
 
 # The summary shows that position and training load are the most impactful variables.
 summary(full_model)
+
 
 # ----- 3. Backward elimination -----
 
@@ -60,12 +63,14 @@ anova(final_model, full_model)
 # The final model has a lower AIC (9707.8 vs 9713.2), so the simpler model is preferred.
 AIC(full_model, final_model)
 
+
 # ----- 4. Training load check -----
 
 # Training load is a 1-5 rating, so I check whether it works better as categories than as a number.
 # F(3, 612) = 0.40, p = 0.75, so categories don't improve the fit, and keeping it as a number is justified.
 cat_model <- update(final_model, . ~ . - training_load + factor(training_load))
 anova(final_model, cat_model)
+
 
 # ----- 5. Results -----
 
@@ -79,13 +84,17 @@ confint(final_model)
 # This table compares the full and final models side by side, and saves it to outputs.
 # The kept estimates barely change, so removing the three variables doesn't change the conclusions.
 # Adjusted R^2 rises and AIC falls, so the simpler final model is preferred.
-modelsummary(
+comparison <- modelsummary(
   list("Full model" = full_model, "Final model" = final_model),
   statistic = "conf.int",
   stars = TRUE,
   gof_map = c("nobs", "r.squared", "adj.r.squared", "aic"),
   fmt = 1,
-  output = "outputs/week02/reece_model_comparison.html"
+  output = "dataframe"
 )
 
-browseURL("outputs/week02/reece_model_comparison.html")
+# Save it as a Markdown table, so it shows as a table on GitHub, and print it in the console.
+comparison$term[comparison$statistic == "conf.int"] <- ""
+comparison_md <- knitr::kable(comparison[, c("term", "Full model", "Final model")], format = "pipe")
+writeLines(comparison_md, "outputs/week02/reece_model_comparison.md")
+comparison_md
