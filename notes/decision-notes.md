@@ -21,6 +21,11 @@ Alternatives: Treating it as categories, as in Sufia's 15 Oct note.
 
 ## Week 03 — Introduction to GLMs
 
+**8 Nov — Normal GLM for `minutes_played`** (Reece)
+Decided: I modelled minutes played with a normal (gaussian) GLM and identity link, which is the same as the week 2 linear model.
+Why: Minutes played is continuous and roughly symmetric, with the mean (2540) and median (2544) almost equal. The GLM gives exactly the same estimates as the linear model, so the week 2 results still hold.
+Alternatives: A Gamma GLM, but minutes played isn't right-skewed, and Poisson, but it isn't a count of events.
+
 ## Week 04 — Binomial regression
 
 ## Week 05 — Residuals and diagnostics
