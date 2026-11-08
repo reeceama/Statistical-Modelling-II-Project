@@ -7,12 +7,23 @@ source("code/setup.R")
 library(modelsummary)
 
 
-# ----- 1. Data loading -----
+# ----- 1. Data exploration -----
 
 # Check the structure of the player data.
 str(player_data)
 summary(player_data)
 
+# Minutes played at each training load level.
+# Median minutes rise steadily with training load, from about 2340 at level 1 to 2770 at level 5,
+# which suggests training load is worth testing in the model. Only 20 players have load 1.
+boxplot(minutes_played ~ training_load,
+        data = player_data,
+        main = "Minutes played by training load",
+        xlab = "Training load (1 = low, 5 = high)",
+        ylab = "Minutes played over the season")
+
+dev.copy(png, "outputs/week02/reece_mins_training_load.png", width = 900, height = 600, res = 120)
+dev.off()
 
 # ----- 2. Full model -----
 
@@ -27,7 +38,8 @@ full_model <- lm(
     prev_injuries + 
     position + 
     bmi,
-  data = player_data)
+  data = player_data
+  )
 
 # The summary shows that position and training load are the most impactful variables.
 summary(full_model)
