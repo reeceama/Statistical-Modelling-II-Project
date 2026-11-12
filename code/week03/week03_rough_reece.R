@@ -8,9 +8,6 @@ source("code/setup.R")
 
 # ----- 1. Refitting -----
 
-# GK is used as the reference position to remain consistent with other files.
-player_data$position <- relevel(player_data$position, ref = "GK")
-
 # The final linear model I decided on in week 2.
 final_lm <- lm(
   minutes_played ~ 

@@ -27,9 +27,6 @@ dev.off()
 
 # ----- 2. Full model -----
 
-# GK is used as the reference position to remain consistent with other files.
-player_data$position <- relevel(player_data$position, ref = "GK")
-
 # A linear model is used to see how each variable affects player minutes. We start with all five as we are currently unsure which have the biggest impact.
 full_model <- lm(
   minutes_played ~ 
@@ -93,7 +90,7 @@ anova(final_model, cat_model)
 summary(final_model)
 confint(final_model)
 
-# This table compares the full and final models side by side, and saves it to outputs.
+# This table compares the full and final models side by side.
 # The kept estimates barely change, so removing the three variables doesn't change the conclusions.
 # Adjusted R^2 rises and AIC falls, so the simpler final model is preferred.
 comparison <- modelsummary(
@@ -105,13 +102,12 @@ comparison <- modelsummary(
   output = "dataframe"
 )
 
-# Label each row as an estimate, 95% CI or fit statistic, and add a note explaining the stars.
+# Organises the table comparing the two models, and saves it as a CSV.
 comparison$term[comparison$statistic == "conf.int"] <- ""
 comparison$statistic <- ifelse(comparison$part == "gof", "Fit statistic",
                                ifelse(comparison$statistic == "conf.int", "95% CI", "Estimate"))
 comparison <- comparison[, c("term", "statistic", "Full model", "Final model")]
 comparison[nrow(comparison) + 1, ] <- c("Note", "*** p < 0.001, ** p < 0.01, * p < 0.05", "", "")
 
-# Save it as a CSV, which also shows as a table on GitHub, and print it in the console.
 write.csv(comparison, "outputs/week02/reece_model_comparison.csv", row.names = FALSE)
 comparison

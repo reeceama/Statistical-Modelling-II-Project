@@ -28,6 +28,11 @@ Alternatives: A Gamma GLM, but minutes played isn't right-skewed, and Poisson, b
 
 ## Week 04 — Binomial regression
 
+**12 Nov — GK as the reference position for everyone** (Reece)
+Decided: I moved setting GK as the reference position into `setup.R`, so every model that uses `player_data` compares positions with goalkeepers.
+Why: R's default reference is the first level alphabetically, which is DEF. Goalkeepers are the clearest comparison, and setting it once in `setup.R` means everyone's models use the same reference without each person having to remember it. Changing the reference only relabels the position coefficients, so fit, AIC and test results stay the same.
+Alternatives: Keeping DEF as the default, or setting the reference separately in each file.
+
 ## Week 05 — Residuals and diagnostics
 
 ## Week 06 — Poisson regression

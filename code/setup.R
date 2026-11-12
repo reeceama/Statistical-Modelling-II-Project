@@ -4,6 +4,9 @@
 match_data  <- read.csv("data/ashford_matches.csv", stringsAsFactors = TRUE)
 player_data <- read.csv("data/league_players.csv", stringsAsFactors = TRUE)
 
+# Goalkeepers (GK) are the reference position in every model
+player_data$position <- relevel(player_data$position, ref = "GK")
+
 # Make sure every weekly outputs folder exists
 for (wk in c("02", "03", "04", "05", "06", "08", "09", "10", "11", "12")) {
   dir.create(file.path("outputs", paste0("week", wk)), recursive = TRUE, showWarnings = FALSE)
