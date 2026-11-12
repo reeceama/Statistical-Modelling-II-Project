@@ -4,3 +4,108 @@
 # Save outputs to outputs/week02/
 
 source("code/setup.R")
+library(modelsummary)
+
+
+# ---- Reece (7 Nov): 1. linear model for minutes played ----
+
+# ----- 1.1 Data exploration -----
+
+# Minutes played at each training load level.
+# Median minutes rise steadily with training load, from about 2340 at level 1 to 2770 at level 5,
+# which suggests training load is worth testing in the model. Only 20 players have load 1.
+boxplot(minutes_played ~ training_load,
+        data = player_data,
+        main = "Minutes played by training load",
+        xlab = "Training load (1 = low, 5 = high)",
+        ylab = "Minutes played over the season")
+
+dev.copy(png, "outputs/week02/reece_mins_training_load.png", width = 900, height = 600, res = 120)
+dev.off()
+
+# ----- 1.2 Full model -----
+
+# A linear model is used to see how each variable affects player minutes. We start with all five as we are currently unsure which have the biggest impact.
+full_model <- lm(
+  minutes_played ~ 
+    age + 
+    training_load + 
+    prev_injuries + 
+    position + 
+    bmi,
+  data = player_data
+  )
+
+# The summary shows that position and training load are the most impactful variables.
+summary(full_model)
+
+
+# ----- 1.3 Backward elimination -----
+
+# drop1 tests the full model with each term removed sequentially, using an F test to see how the fit changes.
+# I remove the term with the largest p-value if it is > 0.05, and stop when all remaining terms have p < 0.05
+drop1(full_model, test = "F")
+
+# Round 1: I start by dropping age, as it has the highest p-value (0.815). 
+# The higher the p-value, the weaker the evidence that the variable matters.
+# Age reduces error by 20014 out of 224 million, and p = 0.815 means that even if age had no effect, you'd see an improvement this big at least 81.5% of the time.
+# Therefore, the age variable is largely just noise, and has no significant impact on the model.
+model_a <- update(full_model, . ~ . - age)
+drop1(model_a, test = "F")
+
+# Round 2: remove bmi, with p = 0.749.
+model_b <- update(model_a, . ~ . - bmi)
+drop1(model_b, test = "F")
+
+# Round 3: remove prev_injuries, with p = 0.535.
+model_c <- update(model_b, . ~ . - prev_injuries)
+drop1(model_c, test = "F")
+
+# Round 4: as the final two variables have p < 0.05, we keep them and build the final model.
+final_model <- model_c
+# The three dropped terms are not needed together. F(3, 612) = 0.18, p = 0.91.
+# F = 0.18 means adding all 3 back barely changes the fit, and p > 0.05 means there's no evidence for their usefulness.
+anova(final_model, full_model)
+# AIC compares models by rewarding good fit but penalising extra variables, where lower is better.
+# The final model has a lower AIC (9707.8 vs 9713.2), so the simpler model is preferred.
+AIC(full_model, final_model)
+
+
+# ----- 1.4 Training load check -----
+
+# Training load is a 1-5 rating, so I check whether it works better as categories than as a number.
+# F(3, 612) = 0.40, p = 0.75, so categories don't improve the fit, and keeping it as a number is justified.
+cat_model <- update(final_model, . ~ . - training_load + factor(training_load))
+anova(final_model, cat_model)
+
+
+# ----- 1.5 Results -----
+
+# The final model keeps training load and position, with 95% confidence intervals for each effect.
+# Each one-level increase in training load is linked to about 144 more minutes (95% CI 96 to 191).
+# Compared with goalkeepers, defenders play about 578 fewer minutes, midfielders 900 fewer and forwards 1200 fewer.
+# R^2 = 0.28, so the model explains 28% of the variation in minutes, and the rest is due to factors not in the data.
+summary(final_model)
+confint(final_model)
+
+# This table compares the full and final models side by side.
+# The kept estimates barely change, so removing the three variables doesn't change the conclusions.
+# Adjusted R^2 rises and AIC falls, so the simpler final model is preferred.
+comparison <- modelsummary(
+  list("Full model" = full_model, "Final model" = final_model),
+  statistic = "conf.int",
+  stars = TRUE,
+  gof_map = c("nobs", "r.squared", "adj.r.squared", "aic"),
+  fmt = 1,
+  output = "dataframe"
+)
+
+# Organises the table comparing the two models, and saves it as a CSV.
+comparison$term[comparison$statistic == "conf.int"] <- ""
+comparison$statistic <- ifelse(comparison$part == "gof", "Fit statistic",
+                               ifelse(comparison$statistic == "conf.int", "95% CI", "Estimate"))
+comparison <- comparison[, c("term", "statistic", "Full model", "Final model")]
+comparison[nrow(comparison) + 1, ] <- c("Note", "*** p < 0.001, ** p < 0.01, * p < 0.05", "", "")
+
+write.csv(comparison, "outputs/week02/reece_model_comparison.csv", row.names = FALSE)
+comparison
