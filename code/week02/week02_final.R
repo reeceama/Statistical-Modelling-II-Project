@@ -23,6 +23,7 @@ boxplot(minutes_played ~ training_load,
 dev.copy(png, "outputs/week02/reece_mins_training_load.png", width = 900, height = 600, res = 120)
 dev.off()
 
+
 # ----- 1.2 Full model -----
 
 # A linear model is used to see how each variable affects player minutes. We start with all five as we are currently unsure which have the biggest impact.

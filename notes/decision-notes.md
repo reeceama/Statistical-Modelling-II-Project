@@ -33,6 +33,11 @@ Decided: I moved setting GK as the reference position into `setup.R`, so every m
 Why: R's default reference is the first level alphabetically, which is DEF. Goalkeepers are the clearest comparison, and setting it once in `setup.R` means everyone's models use the same reference without each person having to remember it. Changing the reference only relabels the position coefficients, so fit, AIC and test results stay the same.
 Alternatives: Keeping DEF as the default, or setting the reference separately in each file.
 
+**13 Nov — `training_load` kept numeric in the injury model** (Reece)
+Decided: I kept training load as a number, so each step up in training load has the same effect on the odds of injury.
+Why: The proportion injured at each level isn't perfectly steady (15%, 11%, 16%, 26%, 26%), so I checked it by fitting training load as categories. This didn't improve the fit (LRT p = 0.24) and had a higher AIC (549.1 vs 547.3), so the simpler numeric version is preferred. It also gives one odds ratio instead of four, which is easier to interpret.
+Alternatives: Treating training load as categories.
+
 ## Week 05 — Residuals and diagnostics
 
 ## Week 06 — Poisson regression

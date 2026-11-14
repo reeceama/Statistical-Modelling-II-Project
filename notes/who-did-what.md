@@ -25,7 +25,7 @@ Running record of each member's contributions, updated weekly.
 
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | |
+| Reece   | Interpreted Summer's final injury model using odds ratios with 95% CIs, and also gave the effects of age per 5 years and training load from 1 to 5 to make them easier to picture. Also checked whether training load works better as a number or as categories in the injury model (13 Nov) |
 | Sabrina | |
 | Saema   | |
 | Sufia   | |
