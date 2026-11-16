@@ -10,21 +10,17 @@ source("code/setup.R")
 
 # The final linear model I decided on in week 2.
 final_lm <- lm(
-  minutes_played ~ 
-    training_load + 
-    position, 
+  minutes_played ~ training_load +  position, 
   data = player_data
-  )
+)
 
 # The same model refitted as a GLM. A GLM with a normal (gaussian) distribution and identity link
 # should be exactly the same as linear regression, so the results should match the lm.
 final_glm <- glm(
-  minutes_played ~ 
-    training_load + 
-    position, 
+  minutes_played ~ training_load + position, 
   data = player_data,
   family = gaussian
-  )
+)
 
 # The residual deviance (224,673,378) is the same as the lm's RSS, and the AIC is the same (9707.8).
 # The null deviance is the total variation with no predictors, so (null - residual) / null = 0.28, the same R^2 as the lm.

@@ -23,18 +23,18 @@ nrow(injury_data)
 # The distribution of injuries, where 0 = not injured (505) and 1 = injured (115).
 table(injury_data$injured)
 
+
 # ----- 2. Fitting the final model -----
 
 # Summer's final model, where injury depends on age, training load and previous injuries (AIC 547.27).
-final_model <- glm(injured ~ 
-                     age + 
-                     training_load + 
-                     prev_injuries,
-                   data = injury_data,
-                   family = binomial
-                   )
+final_model <- glm(
+  injured ~ age + training_load + prev_injuries,
+  data = injury_data,
+  family = binomial
+)
 
 summary(final_model)
+
 
 # ----- 3. Odds ratios with 95% confidence intervals -----
 
@@ -58,6 +58,7 @@ round(or_table, 3)
 # Saves the odds ratio table rounded to 3 decimal places.
 write.csv(round(or_table, 3), "outputs/week04/reece_odds_ratios.csv")
 
+
 # ----- 4. Rescaled odds ratios -----
 
 # An odds ratio per year of age is small and hard to picture, so it's also given per 5 years.
@@ -65,9 +66,9 @@ write.csv(round(or_table, 3), "outputs/week04/reece_odds_ratios.csv")
 # Multiplying a coefficient before exponentiating gives the effect of that larger change.
 rescaled_table <- data.frame(
   odds_ratio = exp(c(5, 4) * coef(final_model)[c("age", "training_load")]),
-  lower_95   = exp(c(5, 4) * confint(final_model)[c("age", "training_load"), 1]),
-  upper_95   = exp(c(5, 4) * confint(final_model)[c("age", "training_load"), 2]),
-  row.names  = c("age (per 5 years)", "training_load (1 to 5)")
+  lower_95 = exp(c(5, 4) * confint(final_model)[c("age", "training_load"), 1]),
+  upper_95 = exp(c(5, 4) * confint(final_model)[c("age", "training_load"), 2]),
+  row.names = c("age (per 5 years)", "training_load (1 to 5)")
 )
 round(rescaled_table, 3)
 
@@ -84,7 +85,8 @@ round(prop.table(table(injury_data$training_load, injury_data$injured), 1), 3)
 # This refits it as categories, which lets each level have its own effect.
 cat_load_model <- glm(injured ~ age + factor(training_load) + prev_injuries,
                       data = injury_data,
-                      family = binomial)
+                      family = binomial
+)
 
 # Categories don't fit significantly better (p = 0.24) and have a higher AIC (549.1 vs 547.3),
 # so treating training load as a number is justified.

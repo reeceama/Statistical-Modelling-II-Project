@@ -16,11 +16,13 @@ summary(player_data)
 # Minutes played at each training load level.
 # Median minutes rise steadily with training load, from about 2340 at level 1 to 2770 at level 5,
 # which suggests training load is worth testing in the model. Only 20 players have load 1.
-boxplot(minutes_played ~ training_load,
-        data = player_data,
-        main = "Minutes played by training load",
-        xlab = "Training load (1 = low, 5 = high)",
-        ylab = "Minutes played over the season")
+boxplot(
+  minutes_played ~ training_load,
+  data = player_data,
+  main = "Minutes played by training load",
+  xlab = "Training load (1 = low, 5 = high)",
+  ylab = "Minutes played over the season"
+)
 
 dev.copy(png, "outputs/week02/reece_mins_training_load.png", width = 900, height = 600, res = 120)
 dev.off()
@@ -29,14 +31,9 @@ dev.off()
 
 # A linear model is used to see how each variable affects player minutes. We start with all five as we are currently unsure which have the biggest impact.
 full_model <- lm(
-  minutes_played ~ 
-    age + 
-    training_load + 
-    prev_injuries + 
-    position + 
-    bmi,
+  minutes_played ~ age + training_load +  prev_injuries + position + bmi,
   data = player_data
-  )
+)
 
 # The summary shows that position and training load are the most impactful variables.
 summary(full_model)

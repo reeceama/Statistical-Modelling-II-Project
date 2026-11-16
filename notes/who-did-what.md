@@ -6,7 +6,7 @@ Running record of each member's contributions, updated weekly.
 
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | Set up the GitHub repo and added the data files (15 Oct); designed the workspace structure (18 Oct); used backward elimination to find which variables affect minutes played, interpreted the final model with 95% CIs, made a table comparing the full and final models, and checked whether training load works better as a number or as categories (7 Nov); plotted minutes played by training load (8 Nov) |
+| Reece   | Set up the GitHub repo and added the data files. (15 Oct) Designed the workspace structure. (18 Oct) Used backward elimination to find which variables affect minutes played, interpreted the final model with 95% CIs, made a table comparing the full and final models, and checked whether training load works better as a number or as categories. (7 Nov) Plotted minutes played by training load. (8 Nov) |
 | Sabrina | |
 | Saema   | Exploratory analysis of player and match datasets using variable classification, summary statistics, tables, and graphs. Linear regression to investigate how age, training load, previous injuries, and playing position relate to minutes played. (15th Oct) | 
 | Sufia   | Exploratory analysis of both datasets: variable classification, summary statistics, six plots, linear models for minutes played and goals scored (15 Oct)|
@@ -15,7 +15,7 @@ Running record of each member's contributions, updated weekly.
 ## Week 03 — Introduction to GLMs
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | Refitted my week 2 model as a normal GLM and showed it gives the same results as the linear model, explained what the deviance and dispersion mean, and checked whether a normal distribution suits minutes played using a histogram (8 Nov) |
+| Reece   | Refitted my week 2 model as a normal GLM and showed it gives the same results as the linear model, explained what the deviance and dispersion mean, and checked whether a normal distribution suits minutes played using a histogram. (8 Nov) |
 | Sabrina | |
 | Saema   | |
 | Sufia   | |
@@ -25,7 +25,7 @@ Running record of each member's contributions, updated weekly.
 
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | Interpreted Summer's final injury model using odds ratios with 95% CIs, and also gave the effects of age per 5 years and training load from 1 to 5 to make them easier to picture. Also checked whether training load works better as a number or as categories in the injury model (13 Nov) |
+| Reece   | Interpreted Summer's final injury model using odds ratios with 95% CIs, and also gave the effects of age per 5 years and training load from 1 to 5 to make them easier to picture. Also checked whether training load works better as a number or as categories in the injury model. (13 Nov) |
 | Sabrina | |
 | Saema   | |
 | Sufia   | |
@@ -35,7 +35,7 @@ Running record of each member's contributions, updated weekly.
 
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | |
+| Reece   | Investigated the unusual observations. Looked at Ashford's 8-0 result and assessed how much it affected the mean and variance of goals scored. Following this, I found the most influential players in the minutes played model and injury model using Cook's distance. (15 Nov) |
 | Sabrina | |
 | Saema   | |
 | Sufia   | |
