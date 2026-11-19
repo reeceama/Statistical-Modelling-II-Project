@@ -1,0 +1,4 @@
+"Test","Statistic","P_Value"
+"Pearson chi-squared",35.2584012577617,4.11083141183534e-07
+"Trend test",35.0862142935955,3.15425937671755e-09
+"Simulated chi-squared",35.2584012577617,9.99900009999e-05
