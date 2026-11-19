@@ -17,7 +17,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | Refitted my week 2 model as a normal GLM and showed it gives the same results as the linear model, explained what the deviance and dispersion mean, and checked whether a normal distribution suits minutes played using a histogram. (8 Nov) |
 | Sabrina | |
-| Saema   | gigigigi
+| Saema   | Grouped players by team and compared injury rates and minutes played using summary statistics, bar charts and boxplots. Considered why player outcomes may be clustered within teams.
 | Sufia   | |
 | Summer  | Completed the variable classification task for both player and match datasets. Identified possible response and explanatory variables and classified them as continuous, binary, count, nominal or ordinal. Explained the suitability of Gaussian, binomial and Poisson GLMs for different response types and created two CSV tables containing the variable classifications. (8 Nov)
 
@@ -27,7 +27,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | Interpreted Summer's final injury model using odds ratios with 95% CIs, and also gave the effects of age per 5 years and training load from 1 to 5 to make them easier to picture. Also checked whether training load works better as a number or as categories in the injury model. (13 Nov) |
 | Sabrina | |
-| Saema   | |
+| Saema   | Modelled injury probabilities across different training load levels and playing positions, producing plots to visualise the results.
 | Sufia   | |
 | Summer  | Carried out logistic regression model selection using likelihood ratio tests and AIC. Compared the full model containing age, training load, previous injuries, BMI and position with simpler alternatives. Found that the model retaining age, training load and previous injuries had the lowest AIC (547.27). The likelihood ratio test supported removing BMI and position (p = 0.5505), while all three retained predictors remained statistically significant. Identified this as the provisional preferred model, subject to agreement with the group's full model. (10 Nov)
 
@@ -37,7 +37,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | Investigated the unusual observations. Looked at Ashford's 8-0 result and assessed how much it affected the mean and variance of goals scored. Following this, I found the most influential players in the minutes played model and injury model using Cook's distance. (15 Nov) |
 | Sabrina | |
-| Saema   | |
+| Saema   | Checked the diagnostics of the final linear regression model for minutes played, assessing model assumptions and fit. 
 | Sufia   | |
 | Summer  | jsjsjsj
 
@@ -57,7 +57,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | |
 | Sabrina | |
-| Saema   | |
+| Saema   | Created win, draw and loss categories and investigated whether match outcomes were associated with home/away status. 
 | Sufia   | |
 | Summer  | |
 
@@ -67,7 +67,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | |
 | Sabrina | |
-| Saema   | |
+| Saema   | Calculated and interpreted conditional odds ratios for the relationship between playing position and injury at different training load levels.
 | Sufia   | |
 | Summer  | |
 
@@ -77,7 +77,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | |
 | Sabrina | |
-| Saema   | |
+| Saema   | investigated whether the count outcomes showed an excess number of zeros.
 | Sufia   | |
 | Summer  | |
 
@@ -87,7 +87,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | |
 | Sabrina | |
-| Saema   | |
+| Saema   | Fitted a logistic mixed-effects model with a random team intercept to investigate variation in player injury risk between teams. Compared it with an ordinary logistic regression model.
 | Sufia   | |
 | Summer  | |
 
@@ -97,6 +97,6 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | |
 | Sabrina | |
-| Saema   | |
+| Saema   | Selected three analyses from the project and justified their inclusion in the final statistical modelling work.
 | Sufia   | |
 | Summer  | |
