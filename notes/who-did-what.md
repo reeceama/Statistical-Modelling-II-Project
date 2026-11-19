@@ -39,7 +39,7 @@ Running record of each member's contributions, updated weekly.
 | Sabrina | |
 | Saema   | Checked the diagnostics of the final linear regression model for minutes played, assessing model assumptions and fit. 
 | Sufia   | |
-| Summer  | jsjsjsj
+| Summer  | Investigated leverage and Cook's distance for the group's Week 2 linear regression model and a provisional Week 4 logistic regression model. Identified 28 observations exceeding the Cook's distance screening threshold in the linear model and 51 in the logistic model. Compared the five most influential observations in each model and found no overlap. Generated diagnostic plots and CSV tables. Logistic regression results will be reviewed once the group's final Week 4 model is agreed. (19 Nov) |
 
 ## Week 06 — Poisson regression
 
