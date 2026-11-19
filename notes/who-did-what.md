@@ -39,7 +39,7 @@ Running record of each member's contributions, updated weekly.
 | Sabrina | |
 | Saema   | |
 | Sufia   | |
-| Summer  | |
+| Summer  | jsjsjsj
 
 ## Week 06 — Poisson regression
 
