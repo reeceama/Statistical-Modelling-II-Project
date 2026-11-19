@@ -17,7 +17,7 @@ Running record of each member's contributions, updated weekly.
 |---------|--------------|
 | Reece   | Refitted my week 2 model as a normal GLM and showed it gives the same results as the linear model, explained what the deviance and dispersion mean, and checked whether a normal distribution suits minutes played using a histogram. (8 Nov) |
 | Sabrina | |
-| Saema   | |
+| Saema   | |gigigigi
 | Sufia   | |
 | Summer  | Completed the variable classification task for both player and match datasets. Identified possible response and explanatory variables and classified them as continuous, binary, count, nominal or ordinal. Explained the suitability of Gaussian, binomial and Poisson GLMs for different response types and created two CSV tables containing the variable classifications. (8 Nov)
 
