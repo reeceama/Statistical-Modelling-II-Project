@@ -39,7 +39,7 @@ Running record of each member's contributions, updated weekly.
 | Sabrina | |
 | Saema   | Checked the diagnostics of the final linear regression model for minutes played, assessing model assumptions and fit. 
 | Sufia   | |
-| Summer  | Investigated leverage and Cook's distance for the group's Week 2 linear regression model and a provisional Week 4 logistic regression model. Identified 28 observations exceeding the Cook's distance screening threshold in the linear model and 51 in the logistic model. Compared the five most influential observations in each model and found no overlap. Generated diagnostic plots and CSV tables. Logistic regression results will be reviewed once the group's final Week 4 model is agreed. (19 Nov) |
+| Summer  | Investigated leverage and Cook's distance for the group's Week 2 linear regression model and a provisional Week 4 logistic regression model. Identified 28 observations exceeding the Cook's distance screening threshold in the linear model and 51 in the logistic model. Compared the five most influential observations in each model and found no overlap. Generated diagnostic plots and CSV tables. Logistic regression results will be reviewed once the group's final Week 4 model is agreed. (17 Nov) |
 
 ## Week 06 — Poisson regression
 
@@ -49,7 +49,7 @@ Running record of each member's contributions, updated weekly.
 | Sabrina | |
 | Saema   | Poisson regression to investigate how Ashford United’s goals scored relate to match location (home or away) and opponent league ranking. Exploratory analysis of goal counts, interpretation of model coefficients, and checks for overdispersion and model fit.(29th Oct)
 | Sufia   | |
-| Summer  | |
+| Summer  |Investigated goodness of fit and overdispersion for a Poisson regression model of goals scored. Calculated the residual deviance (49.78), deviance-to-degrees-of-freedom ratio (1.16) and Pearson dispersion ratio (0.99). Fitted a quasi-Poisson model and compared coefficient estimates and standard errors, finding little evidence of substantial overdispersion. Saved diagnostic and model comparison tables. Analysis is provisional pending agreement on the group's Week 6 model. (19 Nov) |
 
 ## Week 08 — Contingency tables I
 
