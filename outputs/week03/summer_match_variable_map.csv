@@ -1,0 +1,5 @@
+"Variable","Type","Possible_Role"
+"home_away","Nominal categorical","Explanatory"
+"goals_scored","Count","Response"
+"goals_conceded","Count","Response"
+"opponent_rank","Ordinal ranking","Explanatory"
