@@ -1,0 +1,4 @@
+"","rate_ratio","lower_95","upper_95","p_value"
+"(Intercept)",0.407,0.197,0.841,0.015
+"home_awayHome",2,1.169,3.421,0.011
+"opponent_rank",1.056,1.016,1.097,0.005

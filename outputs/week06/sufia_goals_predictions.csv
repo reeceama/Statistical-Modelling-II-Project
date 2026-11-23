@@ -1,0 +1,7 @@
+"home_away","opponent_rank","expected_goals","lower_95","upper_95"
+"Home",1,0.86,0.46,1.6
+"Away",1,0.43,0.21,0.86
+"Home",12,1.56,1.12,2.18
+"Away",12,0.78,0.5,1.23
+"Home",24,3,1.9,4.73
+"Away",24,1.5,0.86,2.6
