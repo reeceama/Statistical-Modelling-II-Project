@@ -1,0 +1,5 @@
+"","glm","glmm","fixed_team"
+"(Intercept)",0.003,0.003,0.003
+"age",1.111,1.111,1.114
+"training_load",1.377,1.377,1.316
+"prev_injuries",1.667,1.667,1.707

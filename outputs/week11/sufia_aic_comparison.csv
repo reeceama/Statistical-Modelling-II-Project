@@ -1,0 +1,4 @@
+"model","AIC"
+"GLM (no team)",547.27
+"GLMM (random team intercept)",549.27
+"GLM (team as fixed effect)",572.39
