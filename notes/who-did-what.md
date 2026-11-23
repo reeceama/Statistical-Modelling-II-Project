@@ -18,7 +18,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | Refitted my week 2 model as a normal GLM and showed it gives the same results as the linear model, explained what the deviance and dispersion mean, and checked whether a normal distribution suits minutes played using a histogram. (8 Nov) |
 | Sabrina | |
 | Saema   | Grouped players by team and compared injury rates and minutes played using summary statistics, bar charts and boxplots. Considered why player outcomes may be clustered within teams.
-| Sufia   | |
+| Sufia   | Section 5, data structure. Compared injury rates and minutes played across the 24 teams with a bar chart, boxplot and tables. Found the team effect is weak (ANOVA p = 0.053, ICC about 0.02, chi squared for injury p = 0.31), so treating players as independent is fine for now, with team to be revisited in week 11. |
 | Summer  | Completed the variable classification task for both player and match datasets. Identified possible response and explanatory variables and classified them as continuous, binary, count, nominal or ordinal. Explained the suitability of Gaussian, binomial and Poisson GLMs for different response types and created two CSV tables containing the variable classifications. (8 Nov)
 
 ## Week 04 — Binomial regression
