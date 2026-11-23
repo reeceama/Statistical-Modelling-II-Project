@@ -48,7 +48,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | |
 | Sabrina | |
 | Saema   | Poisson regression to investigate how Ashford United’s goals scored relate to match location (home or away) and opponent league ranking. Exploratory analysis of goal counts, interpretation of model coefficients, and checks for overdispersion and model fit.(29th Oct)
-| Sufia   | |
+| Sufia   | I interpreted the goals model using rate ratios with 95% CIs. Ashford score about twice as many goals at home (RR 2.00), and about 5.6% more for each place lower the opponent ranks. |
 | Summer  |Investigated goodness of fit and overdispersion for a Poisson regression model of goals scored. Calculated the residual deviance (49.78), deviance-to-degrees-of-freedom ratio (1.16) and Pearson dispersion ratio (0.99). Fitted a quasi-Poisson model and compared coefficient estimates and standard errors, finding little evidence of substantial overdispersion. Saved diagnostic and model comparison tables. Analysis is provisional pending agreement on the group's Week 6 model. (19 Nov) |
 
 ## Week 08 — Contingency tables I
@@ -58,7 +58,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | |
 | Sabrina | |
 | Saema   | Created win, draw and loss categories and investigated whether match outcomes were associated with home/away status. 
-| Sufia   | |
+| Sufia   | I tested whether injury rates differ between teams using a chi squared test and a simulated p value. They don't (p = 0.31); only Grantwick FC stands out. |
 | Summer  | |
 
 ## Week 09 — Contingency tables II
@@ -68,7 +68,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | |
 | Sabrina | |
 | Saema   | Calculated and interpreted conditional odds ratios for the relationship between playing position and injury at different training load levels.
-| Sufia   | |
+| Sufia   | I looked at match results by venue and opponent strength using a three way table and log linear models. Home/away matters most (65% wins at home vs 30% away); opponent strength adds little. |
 | Summer  | |
 
 ## Week 10 — Specialised models
@@ -78,7 +78,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | |
 | Sabrina | |
 | Saema   | investigated whether the count outcomes showed an excess number of zeros.
-| Sufia   | |
+| Sufia   | I compared negative binomial and Poisson models for goals. There's no overdispersion, so Poisson is kept (lower AIC). |
 | Summer  | |
 
 ## Week 11 — Generalised linear mixed models
@@ -88,7 +88,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | |
 | Sabrina | |
 | Saema   | Fitted a logistic mixed-effects model with a random team intercept to investigate variation in player injury risk between teams. Compared it with an ordinary logistic regression model.
-| Sufia   | |
+| Sufia   | I added a random team effect to the injury model and compared it with fixed team effects. The team variance was 0, so the conclusions don't change. |
 | Summer  | |
 
 ## Week 12 — Choosing analyses and planning the report
