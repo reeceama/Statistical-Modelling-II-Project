@@ -28,7 +28,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | Interpreted Summer's final injury model using odds ratios with 95% CIs, and also gave the effects of age per 5 years and training load from 1 to 5 to make them easier to picture. Also checked whether training load works better as a number or as categories in the injury model. (13 Nov) |
 | Sabrina | |
 | Saema   | Modelled injury probabilities across different training load levels and playing positions, producing plots to visualise the results.
-| Sufia   | |
+| Sufia   | Section 1, full logistic model for injured with age, training load, previous injuries, BMI and position. Fits much better than the null model (p < 0.001). Age, training load and previous injuries raise injury risk; BMI and position show no clear effect. |
 | Summer  | Carried out logistic regression model selection using likelihood ratio tests and AIC. Compared the full model containing age, training load, previous injuries, BMI and position with simpler alternatives. Found that the model retaining age, training load and previous injuries had the lowest AIC (547.27). The likelihood ratio test supported removing BMI and position (p = 0.5505), while all three retained predictors remained statistically significant. Identified this as the provisional preferred model, subject to agreement with the group's full model. (10 Nov)
 
 ## Week 05 — Residuals and diagnostics
