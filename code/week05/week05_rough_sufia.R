@@ -24,6 +24,7 @@ sum(pear_res^2)
 sum(abs(dev_res) > 2)
 sum(abs(pear_res) > 2)
 
+png("outputs/week05/sufia_logistic_residuals.png", width = 1100, height = 550, res = 120)
 par(mfrow = c(1, 2))
 plot(fitted_p, dev_res,
      col = ifelse(player_data$injured == 1, "red", "grey40"), pch = 16, cex = 0.7,
@@ -37,9 +38,7 @@ plot(fitted_p, pear_res,
 abline(h = c(-2, 0, 2), lty = c(2, 1, 2))
 legend("topright", legend = c("Injured", "Not injured"),
        col = c("red", "grey40"), pch = 16, cex = 0.7, bty = "n")
-dev.copy(png, "outputs/week05/sufia_logistic_residuals.png", width = 1100, height = 550, res = 120)
 dev.off()
-par(mfrow = c(1, 1))
 
 raw_res <- player_data$injured - fitted_p
 bin <- cut(rank(fitted_p, ties.method = "first"), breaks = 20, labels = FALSE)
@@ -53,6 +52,7 @@ binned$se_band <- 2 * sqrt(as.numeric(tapply(fitted_p * (1 - fitted_p), bin, sum
 round(binned, 3)
 write.csv(round(binned, 3), "outputs/week05/sufia_binned_residuals.csv", row.names = FALSE)
 
+png("outputs/week05/sufia_binned_residual_plot.png", width = 900, height = 600, res = 120)
 plot(binned$mean_fitted, binned$mean_resid,
      pch = 16, ylim = range(c(-binned$se_band, binned$se_band, binned$mean_resid)),
      xlab = "Average fitted probability (bin)", ylab = "Average residual (bin)",
@@ -60,7 +60,6 @@ plot(binned$mean_fitted, binned$mean_resid,
 lines(binned$mean_fitted,  binned$se_band, lty = 2, col = "grey40")
 lines(binned$mean_fitted, -binned$se_band, lty = 2, col = "grey40")
 abline(h = 0)
-dev.copy(png, "outputs/week05/sufia_binned_residual_plot.png", width = 900, height = 600, res = 120)
 dev.off()
 sum(abs(binned$mean_resid) > binned$se_band)
 
@@ -75,13 +74,12 @@ binned_by <- function(x, label) {
   lines(mx, -band, lty = 2, col = "grey40")
   abline(h = 0)
 }
+png("outputs/week05/sufia_binned_residuals_by_predictor.png", width = 1200, height = 450, res = 120)
 par(mfrow = c(1, 3))
 binned_by(player_data$age, "Age")
 binned_by(player_data$training_load, "Training load")
 binned_by(player_data$prev_injuries, "Previous injuries")
-dev.copy(png, "outputs/week05/sufia_binned_residuals_by_predictor.png", width = 1200, height = 450, res = 120)
 dev.off()
-par(mfrow = c(1, 1))
 
 dec <- cut(rank(fitted_p, ties.method = "first"), breaks = 10, labels = FALSE)
 hl_table <- data.frame(
@@ -103,6 +101,4 @@ pchisq(hl_stat, df = 8, lower.tail = FALSE)
 # Binned residual plot: 1 of 20 bins outside the bands (the lowest risk bin)
 # Grouped goodness of fit: about 17.3 on 8 df, p about 0.03 (borderline)
 # The model underestimates risk for the lowest and highest risk players
-
-
 
