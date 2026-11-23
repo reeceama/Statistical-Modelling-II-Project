@@ -18,7 +18,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | Refitted my week 2 model as a normal GLM and showed it gives the same results as the linear model, explained what the deviance and dispersion mean, and checked whether a normal distribution suits minutes played using a histogram. (8 Nov) |
 | Sabrina | |
 | Saema   | Grouped players by team and compared injury rates and minutes played using summary statistics, bar charts and boxplots. Considered why player outcomes may be clustered within teams.
-| Sufia   | Section 5, data structure. Compared injury rates and minutes played across the 24 teams with a bar chart, boxplot and tables. Found the team effect is weak (ANOVA p = 0.053, ICC about 0.02, chi squared for injury p = 0.31), so treating players as independent is fine for now, with team to be revisited in week 11. |
+| Sufia   | I showed players are grouped within 24 teams, but the team effect is weak, so they can be treated as independent for now.
 | Summer  | Completed the variable classification task for both player and match datasets. Identified possible response and explanatory variables and classified them as continuous, binary, count, nominal or ordinal. Explained the suitability of Gaussian, binomial and Poisson GLMs for different response types and created two CSV tables containing the variable classifications. (8 Nov)
 
 ## Week 04 — Binomial regression
@@ -28,7 +28,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | Interpreted Summer's final injury model using odds ratios with 95% CIs, and also gave the effects of age per 5 years and training load from 1 to 5 to make them easier to picture. Also checked whether training load works better as a number or as categories in the injury model. (13 Nov) |
 | Sabrina | |
 | Saema   | Modelled injury probabilities across different training load levels and playing positions, producing plots to visualise the results.
-| Sufia   | Section 1, full logistic model for injured with age, training load, previous injuries, BMI and position. Fits much better than the null model (p < 0.001). Age, training load and previous injuries raise injury risk; BMI and position show no clear effect. |
+| Sufia   |I fitted a logistic model for injury. Age, training load and previous injuries raise risk; BMI and position don't.
 | Summer  | Carried out logistic regression model selection using likelihood ratio tests and AIC. Compared the full model containing age, training load, previous injuries, BMI and position with simpler alternatives. Found that the model retaining age, training load and previous injuries had the lowest AIC (547.27). The likelihood ratio test supported removing BMI and position (p = 0.5505), while all three retained predictors remained statistically significant. Identified this as the provisional preferred model, subject to agreement with the group's full model. (10 Nov)
 
 ## Week 05 — Residuals and diagnostics
@@ -38,7 +38,7 @@ Running record of each member's contributions, updated weekly.
 | Reece   | Investigated the unusual observations. Looked at Ashford's 8-0 result and assessed how much it affected the mean and variance of goals scored. Following this, I found the most influential players in the minutes played model and injury model using Cook's distance. (15 Nov) |
 | Sabrina | |
 | Saema   | Checked the diagnostics of the final linear regression model for minutes played, assessing model assumptions and fit. 
-| Sufia   | |
+| Sufia   | I checked the injury model's fit. It's reasonable, but slightly underestimates risk at the extremes. |
 | Summer  | Investigated leverage and Cook's distance for the group's Week 2 linear regression model and a provisional Week 4 logistic regression model. Identified 28 observations exceeding the Cook's distance screening threshold in the linear model and 51 in the logistic model. Compared the five most influential observations in each model and found no overlap. Generated diagnostic plots and CSV tables. Logistic regression results will be reviewed once the group's final Week 4 model is agreed. (17 Nov) |
 
 ## Week 06 — Poisson regression
