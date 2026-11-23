@@ -28,23 +28,25 @@ team_summary
 write.csv(team_summary, "outputs/week03/sufia_team_summary.csv", row.names = FALSE)
 
 par(mar = c(5, 9, 3, 1))
-barplot(team_summary$injury_rate,
-        names.arg = team_summary$team,
-        horiz = TRUE, las = 1, cex.names = 0.7,
-        xlim = c(0, 0.5),
-        main = "Injury rate by team",
-        xlab = "Proportion of players injured")
+bar_pos <- barplot(team_summary$injury_rate,
+                   names.arg = NA,
+                   horiz = TRUE,
+                   xlim = c(0, 0.5),
+                   main = "Injury rate by team",
+                   xlab = "Proportion of players injured")
+mtext(team_summary$team, side = 2, at = bar_pos, las = 1, line = 0.5, cex = 0.65)
 abline(v = mean(player_data$injured), lty = 2)
-dev.copy(png, "outputs/week03/sufia_injury_rate_by_team.png", width = 900, height = 700, res = 120)
+dev.copy(png, "outputs/week03/sufia_injury_rate_by_team.png", width = 900, height = 900, res = 120)
 dev.off()
 
 team_order <- reorder(player_data$team, player_data$minutes_played, FUN = median)
 boxplot(player_data$minutes_played ~ team_order,
-        horizontal = TRUE, las = 1, cex.axis = 0.7,
+        horizontal = TRUE, names = rep("", nlevels(team_order)),
         main = "Minutes played by team",
         xlab = "Minutes played over the season", ylab = "")
+mtext(levels(team_order), side = 2, at = 1:nlevels(team_order), las = 1, line = 0.5, cex = 0.65)
 abline(v = mean(player_data$minutes_played), lty = 2)
-dev.copy(png, "outputs/week03/sufia_minutes_by_team.png", width = 900, height = 700, res = 120)
+dev.copy(png, "outputs/week03/sufia_minutes_by_team.png", width = 900, height = 900, res = 120)
 dev.off()
 par(mar = c(5, 4, 4, 2) + 0.1)
 
