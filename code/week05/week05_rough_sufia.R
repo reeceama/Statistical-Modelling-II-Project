@@ -103,3 +103,6 @@ pchisq(hl_stat, df = 8, lower.tail = FALSE)
 # Binned residual plot: 1 of 20 bins outside the bands (the lowest risk bin)
 # Grouped goodness of fit: about 17.3 on 8 df, p about 0.03 (borderline)
 # The model underestimates risk for the lowest and highest risk players
+
+
+
