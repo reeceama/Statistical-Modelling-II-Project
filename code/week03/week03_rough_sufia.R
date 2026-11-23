@@ -1,5 +1,4 @@
 # Week 03 — Introduction to GLMs
-# Rough exploratory work: Sufia
 
 source("code/setup.R")
 
@@ -70,7 +69,7 @@ table(match_data$opponent_rank)
 setdiff(1:24, match_data$opponent_rank)
 sum(player_data$team == "Ashford United")
 
-# Summary
+#Overview
 # 620 players are nested within 24 teams (24 to 28 each).
 # Players in the same team may not be independent.
 # Injury rates range from 8% to 44%.
@@ -79,4 +78,4 @@ sum(player_data$team == "Ashford United")
 # Chi squared for injury: p = 0.31 (15 expected counts below 5).
 # Treating players as independent is fine for weeks 4 to 6.
 # Team should be allowed for later with a random intercept (week 11).
-# Match data: 46 Ashford games, each opponent home and away; Ashford are 9th.
+# Match data: 46 Ashford games, each opponent home and away; Ashford are 9th
