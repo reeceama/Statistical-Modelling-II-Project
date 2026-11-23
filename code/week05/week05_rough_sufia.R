@@ -95,11 +95,11 @@ hl_stat <- sum((hl_table$observed - hl_table$expected)^2 /
 hl_stat
 pchisq(hl_stat, df = 8, lower.tail = FALSE)
 
-# Summary
+# Overview
 # Checked the agreed week 4 model: age, training load, previous injuries.
 # Residuals form two bands, which is normal for a binary response.
 # Large residuals (26 deviance, 50 Pearson above 2) are injured players
 # the model gave a low risk to; expected, not a problem.
-# Binned residual plot: 1 of 20 bins outside the bands (the lowest risk bin).
-# Grouped goodness of fit: about 17.3 on 8 df, p about 0.03 (borderline).
-# The model underestimates risk for the lowest and highest risk players.
+# Binned residual plot: 1 of 20 bins outside the bands (the lowest risk bin)
+# Grouped goodness of fit: about 17.3 on 8 df, p about 0.03 (borderline)
+# The model underestimates risk for the lowest and highest risk players
