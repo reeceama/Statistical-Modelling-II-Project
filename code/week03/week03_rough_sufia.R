@@ -68,9 +68,13 @@ table(match_data$opponent_rank)
 setdiff(1:24, match_data$opponent_rank)
 sum(player_data$team == "Ashford United")
 
-# 620 players are nested within 24 teams (24 to 28 each), so players in the same team may not be
-# independent. Injury rates range from 8% to 44% and mean minutes from about 2040 to 2800, but the team
-# effect is weak: ANOVA p = 0.053, ICC about 0.02, and chi squared for injury p = 0.31 (15 expected counts
-# below 5, so only approximate). Treating players as independent is fine for weeks 4 to 6, but team
-# should be allowed for later with a random intercept (week 11). The match data are 46 Ashford games,
-# each opponent played home and away; Ashford are 9th.
+# Summary
+# 620 players are nested within 24 teams (24 to 28 each).
+# Players in the same team may not be independent.
+# Injury rates range from 8% to 44%.
+# Mean minutes range from about 2040 to 2800.
+# The team effect is weak: ANOVA p = 0.053, ICC about 0.02.
+# Chi squared for injury: p = 0.31 (15 expected counts below 5).
+# Treating players as independent is fine for weeks 4 to 6.
+# Team should be allowed for later with a random intercept (week 11).
+# Match data: 46 Ashford games, each opponent home and away; Ashford are 9th.
