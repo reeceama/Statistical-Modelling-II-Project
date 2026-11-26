@@ -7,20 +7,9 @@ source("code/setup.R")
 
 
 # ---- Reece (13 Nov): 3. odds ratios for the injury model ----
+# Uses Summer's final model from section 2 (model_no_position_bmi).
 
-# ----- 3.1 Final model -----
-
-# Summer's final model, where injury depends on age, training load and previous injuries (AIC 547.27).
-model_no_position_bmi <- glm(
-  injured ~ age + training_load + prev_injuries,
-  data = player_data,
-  family = binomial
-)
-
-summary(model_no_position_bmi)
-
-
-# ----- 3.2 Odds ratios with 95% confidence intervals -----
+# ----- 3.1 Odds ratios with 95% confidence intervals -----
 
 # Converts the coefficients from log-odds to odds ratios, which are easier to interpret.
 odds_ratios <- exp(coef(model_no_position_bmi))
@@ -43,7 +32,7 @@ round(or_table, 3)
 write.csv(round(or_table, 3), "outputs/week04/reece_odds_ratios.csv")
 
 
-# ----- 3.3 Rescaled odds ratios -----
+# ----- 3.2 Rescaled odds ratios -----
 
 # An odds ratio per year of age is small and hard to picture, so it's also given per 5 years.
 # Training load is scored 1 to 5, so going from the lowest to the highest level is 4 steps.
@@ -60,7 +49,7 @@ round(rescaled_table, 3)
 write.csv(round(rescaled_table, 3), "outputs/week04/reece_odds_ratios_rescaled.csv")
 
 
-# ----- 3.4 Training load check -----
+# ----- 3.3 Training load check -----
 
 # Proportion of players injured at each training load level: 15%, 11%, 16%, 26%, 26%.
 round(prop.table(table(player_data$training_load, player_data$injured), 1), 3)
@@ -79,7 +68,7 @@ anova(model_no_position_bmi, cat_load_model, test = "Chisq")
 AIC(model_no_position_bmi, cat_load_model)
 
 
-# ----- 3.5 Conclusion -----
+# ----- 3.4 Conclusion -----
 
 # All three predictors significantly increase the odds of injury, as no 95% CI includes 1.
 # Odds of injury rise by about 67% per previous injury (1.40 to 2.00), 38% per training load level (1.11 to 1.71)
