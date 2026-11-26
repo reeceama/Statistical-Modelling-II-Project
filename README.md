@@ -41,9 +41,11 @@ Changes to `weekXX_final.R` and `code/setup.R` go through a pull request, so som
    # ---- Name (20 Oct): 2. what it does ----
    ```
 2. **Check it runs with everyone else's code.** Click **Session → Restart R**, then **Source** to run the whole final file from the top.
-3. **Open a pull request.**
-   - **In RStudio:** click **Pull**, then the purple **New Branch** button in the Git tab, and name it e.g. `name-week04`. Commit and push as normal. On GitHub, click **Compare & pull request** on the yellow banner, write a line on what you added, and click **Create pull request**.
-   - **On the GitHub website:** after editing or uploading the file, click **Commit changes**, choose **Create a new branch for this commit and start a pull request**, then click **Propose changes** and **Create pull request**.
+3. **Open a draft pull request.**
+   - **In RStudio:** click **Pull**, then the purple **New Branch** button in the Git tab, and name it e.g. `name-week04`. Commit and push as normal. On GitHub, click **Compare & pull request** on the yellow banner and write a line on what you added. Click the arrow next to **Create pull request**, choose **Create draft pull request**, and click it.
+   - **On the GitHub website:** after editing or uploading the file, click **Commit changes**, choose **Create a new branch for this commit and start a pull request**, then click **Propose changes**. Click the arrow next to **Create pull request**, choose **Create draft pull request**, and click it.
+
+   Always open it as a **draft**, so it can't be merged by accident. If your section uses someone else's code that isn't in the final file yet (e.g. their model), say so in the description and leave it as a draft until theirs is merged. When it's ready, click **Ready for review** at the bottom of the pull request.
 4. **Someone else reviews it.** They look at the **Files changed** tab and either approve it or leave a comment. To fix something, commit to the same branch and the pull request updates.
 
    **If you're reviewing, don't edit someone else's code.** Instead:
