@@ -29,6 +29,7 @@ summary(final_glm)
 # The coefficients, standard errors and p-values are exactly the same in both models.
 # The dispersion (365,322.6) is the error variance, equal to the lm's residual SE squared (604.4^2).
 cbind(lm = coef(final_lm), glm = coef(final_glm))
+cbind(lm_se = sqrt(diag(vcov(final_lm))), glm_se = sqrt(diag(vcov(final_glm))))
 
 
 # ----- 2. Is a normal distribution suitable? -----
