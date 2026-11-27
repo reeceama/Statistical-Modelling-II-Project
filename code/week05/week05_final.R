@@ -7,7 +7,6 @@ source("code/setup.R")
 
 
 # ---- Reece (15 Nov): 4. unusual observations ----
-# Uses Summer's models and Cook's distances from section 3 (linear_model, logistic_model, linear_cooks, logistic_cooks).
 
 # ----- 4.1 The 8-0 match -----
 
