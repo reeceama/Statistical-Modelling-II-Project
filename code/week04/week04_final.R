@@ -7,7 +7,6 @@ source("code/setup.R")
 
 
 # ---- Reece (13 Nov): 3. odds ratios for the injury model ----
-# Uses Summer's final model from section 2 (model_no_position_bmi).
 
 # ----- 3.1 Odds ratios with 95% confidence intervals -----
 
