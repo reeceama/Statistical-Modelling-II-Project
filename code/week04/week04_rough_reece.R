@@ -40,8 +40,10 @@ summary(final_model)
 
 # Converts the coefficients from log-odds to odds ratios, which are easier to interpret.
 odds_ratios <- exp(coef(final_model))
-# 95% confidence intervals for the coefficients, also converted to odds ratios.
-or_ci <- exp(confint(final_model))
+# 95% confidence intervals on the log-odds scale, calculated once and used in both tables.
+log_ci <- confint(final_model)
+# The same intervals converted to odds ratios.
+or_ci <- exp(log_ci)
 
 # Table of each odds ratio with its 95% confidence interval.
 # An odds ratio above 1 means higher odds of injury, below 1 means lower odds, and 1 means no effect.
@@ -66,8 +68,8 @@ write.csv(round(or_table, 3), "outputs/week04/reece_odds_ratios.csv")
 # Multiplying a coefficient before exponentiating gives the effect of that larger change.
 rescaled_table <- data.frame(
   odds_ratio = exp(c(5, 4) * coef(final_model)[c("age", "training_load")]),
-  lower_95 = exp(c(5, 4) * confint(final_model)[c("age", "training_load"), 1]),
-  upper_95 = exp(c(5, 4) * confint(final_model)[c("age", "training_load"), 2]),
+  lower_95 = exp(c(5, 4) * log_ci[c("age", "training_load"), 1]),
+  upper_95 = exp(c(5, 4) * log_ci[c("age", "training_load"), 2]),
   row.names = c("age (per 5 years)", "training_load (1 to 5)")
 )
 round(rescaled_table, 3)
