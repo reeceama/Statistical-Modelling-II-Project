@@ -45,7 +45,7 @@ Running record of each member's contributions, updated weekly.
 
 | Member  | Contribution |
 |---------|--------------|
-| Reece   | |
+| Reece   | Fitted the same Poisson model for goals conceded and interpreted it using rate ratios with 95% CIs. Also checked the fit and dispersion, and as goals conceded were underdispersed, I compared the results with a quasi-Poisson model. (28 Nov) |
 | Sabrina | |
 | Saema   | Poisson regression to investigate how Ashford United’s goals scored relate to match location (home or away) and opponent league ranking. Exploratory analysis of goal counts, interpretation of model coefficients, and checks for overdispersion and model fit.(29th Oct)
 | Sufia   | I interpreted the goals model using rate ratios with 95% CIs. Ashford score about twice as many goals at home (RR 2.00), and about 5.6% more for each place lower the opponent ranks. |

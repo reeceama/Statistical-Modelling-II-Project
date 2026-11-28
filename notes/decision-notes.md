@@ -33,6 +33,7 @@ Record each analytical decision: what we decided, when, why, and what alternativ
 
 | Who and when | Decided | Why | Alternatives |
 |--------------|---------|-----|--------------|
+| Reece, 28 Nov | I kept the Poisson model for goals conceded. | Goals conceded are underdispersed (0.57), so the Poisson results are slightly cautious. A quasi-Poisson check gave the same estimates and made home/away clearly significant. | Using quasi-Poisson as the main model. |
 
 ## Week 08 — Contingency tables I
 
